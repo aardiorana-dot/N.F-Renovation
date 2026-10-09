@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>N.F Rénovation</title>
+<meta name="description" content="Site officiel — informations, galerie, emplacement et avis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script>try{var t=localStorage.getItem("theme");if(!t)t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
+<style>
+
+/* ============================================
+   JETONS DE STYLE — modifiez-les pour changer tout le thème
+   ============================================ */
+:root{
+  --bg:        #faf9f9;
+  --bg-2:      #f3eef1;
+  --primary:       #b32e6e;
+  --primary-dark:  #8a2255;
+  --accent:         #b32e6e;
+  --accent-light:   #d9679e;
+  --ink:     #1a3350;
+  --ink-60:  rgba(26,51,80,.62);
+  --line:         rgba(26,51,80,.14);
+  --white:        #ffffff;
+  --panel:        #1a3350;
+  --on-panel:     #faf9f9;
+  --header-bg:    rgba(250,249,249,.92);
+  --bg-3:         #ece4d2;
+  --on-primary:   #ffffff;
+
+  /* logo mark color */
+  --roof-1: #b32e6e;
+  --roof-2: #b32e6e;
+  --roof-3: #b32e6e;
+  --roof-4: #b32e6e;
+  --roof-5: #b32e6e;
+
+  --display: 'Poppins', 'Work Sans', -apple-system, Helvetica, Arial, sans-serif;
+  --body:    'Work Sans', -apple-system, Helvetica, Arial, sans-serif;
+
+  --max: 1120px;
+  --radius: 2px;
+}
+
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#14181d; --bg-2:#1c2229; --bg-3:#242c35;
+  --ink:#eceff3; --ink-60:rgba(236,239,243,.66); --line:rgba(255,255,255,.14);
+  --white:#1c2229; --panel:#0d1115; --on-panel:#eceff3; --header-bg:rgba(20,24,29,.9);
+  --primary:#d4478b; --primary-dark:#f08ab5; --accent:#e266a2; --accent-light:#f08ab5;
+  --roof-1:#d4478b; --roof-2:#d4478b; --roof-3:#d4478b; --roof-4:#d4478b; --roof-5:#d4478b;
+}
+:root[data-theme="dark"] .map-frame{ filter:invert(.92) hue-rotate(180deg) contrast(.9) grayscale(.2); }
+:root[data-theme="dark"] .ph-img{ filter:brightness(.92); }
+body, header, .feature, .review-form, .contact-form, .field input, .field textarea{ transition:background-color .3s ease, color .3s ease, border-color .3s ease; }
+.theme-toggle{
+  width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:transparent;
+  color:var(--ink); cursor:pointer; display:inline-flex; align-items:center; justify-content:center; padding:0;
+}
+.theme-toggle:hover{ border-color:var(--primary); color:var(--primary); }
+.theme-toggle svg{ width:20px; height:20px; }
+.theme-toggle .i-sun{ display:none; }
+:root[data-theme="dark"] .theme-toggle .i-sun{ display:block; }
+:root[data-theme="dark"] .theme-toggle .i-moon{ display:none; }
+
+@media (max-width:600px){ .nav-cta .btn{ display:none; } .brand{ white-space:nowrap; font-size:1.2rem; } }
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; overflow-x:hidden; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *{ animation-duration:.01ms !important; transition-duration:.01ms !important; }
+}
+
+body{
+  margin:0;
+  font-family:var(--body);
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3{
+  font-family:var(--display);
+  font-weight:500;
+  color:var(--primary-dark);
+  margin:0 0 .4em;
+  letter-spacing:.2px;
+}
+h1{ font-size:clamp(2.4rem,4.6vw,3.6rem); line-height:1.08; font-weight:700; }
+h2{ font-size:clamp(1.7rem,2.8vw,2.3rem); font-weight:700; }
+h3{ font-size:1.2rem; font-weight:600; }
+p{ margin:0 0 1em; }
+a{ color:inherit; }
+
+.wrap{ max-width:var(--max); margin:0 auto; padding:0 28px; }
+.section{ padding:96px 0; }
+.section--tight{ padding:64px 0; }
+.section-head{ max-width:620px; margin-bottom:48px; }
+.eyebrow{
+  display:inline-block;
+  font-family:var(--body);
+  font-weight:600;
+  font-size:.92rem;
+  color:var(--primary);
+  margin-bottom:10px;
+}
+.rule{ border:none; border-top:1px solid var(--line); margin:0; }
+.lede{ font-size:1.1rem; color:var(--ink-60); max-width:56ch; }
+
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--body); font-weight:600; font-size:.95rem;
+  padding:14px 28px;
+  border-radius:var(--radius);
+  border:1px solid var(--primary);
+  background:var(--primary);
+  color:var(--on-primary);
+  cursor:pointer;
+  text-decoration:none;
+  transition:background .2s ease, color .2s ease, transform .15s ease;
+}
+.btn:hover{ background:var(--primary-dark); }
+.btn:active{ transform:translateY(1px); }
+.btn--ghost{
+  background:transparent; color:var(--primary); border-color:var(--primary);
+}
+.btn--ghost:hover{ background:var(--primary); color:var(--on-primary); }
+.btn:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+  outline:2px solid var(--accent); outline-offset:3px;
+}
+
+/* ============================================
+   EN-TÊTE
+   ============================================ */
+.roof-bar{
+  height:4px; width:100%;
+  background:linear-gradient(90deg, var(--roof-1), var(--roof-2), var(--roof-3), var(--roof-4), var(--roof-5));
+}
+header{
+  position:sticky; top:0; z-index:50;
+  background:var(--header-bg);
+  backdrop-filter:saturate(160%) blur(6px);
+  border-bottom:1px solid transparent;
+  transition:border-color .25s ease, box-shadow .25s ease;
+}
+header.is-scrolled{
+  border-bottom-color:var(--line);
+  box-shadow:0 6px 18px -14px rgba(0,0,0,.4);
+}
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 0;
+}
+.brand{
+  display:inline-flex; align-items:center; gap:10px;
+  font-family:var(--display); font-size:1.35rem; font-weight:700;
+  color:var(--ink); text-decoration:none; letter-spacing:.2px;
+}
+.brand-mark{ width:34px; height:34px; flex-shrink:0; }
+.brand .be{ color:var(--ink); font-weight:800; }
+.brand .nuhiu{ color:var(--ink); font-weight:500; }
+.nav-links{
+  display:flex; gap:34px; list-style:none; margin:0; padding:0;
+}
+.nav-links a{
+  text-decoration:none; font-size:.95rem; color:var(--ink);
+  position:relative; padding-bottom:4px;
+}
+.nav-links a::after{
+  content:""; position:absolute; left:0; right:100%; bottom:0; height:1px;
+  background:var(--accent); transition:right .25s ease;
+}
+.nav-links a:hover::after{ right:0; }
+.nav-cta{ display:flex; align-items:center; gap:18px; }
+.nav-phone{ font-size:.92rem; text-decoration:none; color:var(--ink); display:none; }
+.nav-toggle{
+  display:none; background:none; border:none; cursor:pointer; padding:6px;
+}
+.nav-toggle span{
+  display:block; width:24px; height:2px; background:var(--primary-dark); margin:5px 0;
+}
+
+@media (max-width:860px){
+  .nav-links{
+    position:fixed; inset:0 0 0 auto; width:min(78vw,320px); height:100vh;
+    background:var(--bg); flex-direction:column; gap:0;
+    padding:96px 32px 32px; box-shadow:-10px 0 30px rgba(0,0,0,.15);
+    display:none;
+  }
+  .nav-links.is-open{ display:flex; animation:navIn .28s ease; }
+  @keyframes navIn{ from{ transform:translateX(60px); opacity:0; } to{ transform:none; opacity:1; } }
+  .nav-links li{ border-bottom:1px solid var(--line); }
+  .nav-links a{ display:block; padding:16px 0; }
+  .nav-toggle{ display:block; }
+  .nav-phone{ display:none !important; }
+}
+
+/* ============================================
+   HÉROS
+   ============================================ */
+.hero{
+  padding:76px 0 90px;
+  overflow:hidden;
+}
+.hero .wrap{
+  display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center;
+}
+.hero-copy{ opacity:0; transform:translateY(14px); animation:rise .7s ease forwards .1s; }
+@keyframes rise{ to{ opacity:1; transform:none; } }
+.hero-copy .eyebrow{ display:block; }
+.hero-copy p{ margin-top:18px; }
+.hero-actions{ display:flex; gap:16px; margin-top:30px; flex-wrap:wrap; }
+.hero-stats{
+  display:flex; gap:34px; margin-top:44px; padding-top:28px; border-top:1px solid var(--line);
+}
+.hero-stat b{ display:block; font-family:var(--display); font-size:1.8rem; color:var(--primary-dark); }
+.hero-stat span{ font-size:.85rem; color:var(--ink-60); }
+
+.hero-photo{
+  position:relative;
+  aspect-ratio:4/5;
+  border-radius:var(--radius);
+  overflow:hidden;
+  border:1px solid var(--line);
+}
+.hero-photo::before{
+  content:""; position:absolute; inset:18px;
+  border:1px solid rgba(250,246,238,.55); pointer-events:none; z-index:2;
+}
+
+@media (max-width:860px){
+  .hero .wrap{ grid-template-columns:1fr; }
+  .hero-photo{ order:-1; aspect-ratio:16/10; }
+}
+
+/* ============================================
+   IMAGE / SUBSTITUT PHOTO
+   ============================================ */
+.ph-img{
+  position:relative; width:100%; height:100%;
+  display:block; object-fit:cover; background:var(--bg-2);
+}
+.ph-fallback{
+  position:absolute; inset:0; display:none; flex-direction:column; align-items:center;
+  justify-content:center; gap:8px; background:
+    repeating-linear-gradient(135deg, var(--bg-2), var(--bg-2) 10px, var(--bg-3) 10px, var(--bg-3) 20px);
+  color:var(--ink-60); text-align:center; padding:16px;
+}
+.ph-fallback svg{ width:28px; height:28px; opacity:.55; }
+.ph-fallback span{ font-size:.78rem; max-width:20ch; }
+
+/* ============================================
+   À PROPOS / ATOUTS
+   ============================================ */
+.about .wrap{ display:grid; grid-template-columns:.9fr 1.1fr; gap:64px; }
+.features{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); margin-top:20px; border:1px solid var(--line); }
+.feature{ background:var(--bg); padding:28px 24px; }
+.feature svg{ width:22px; height:22px; color:var(--accent); margin-bottom:14px; }
+.feature h3{ font-size:1.1rem; margin-bottom:6px; }
+.feature p{ font-size:.92rem; color:var(--ink-60); margin:0; }
+@media (max-width:860px){
+  .about .wrap{ grid-template-columns:1fr; }
+  .features{ grid-template-columns:1fr; }
+}
+
+/* ============================================
+   GALERIE — albums avec visionneuse (zoom, navigation)
+   ============================================ */
+.album-grid{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+}
+.gallery-tabs{ display:flex; flex-wrap:wrap; gap:12px; margin-bottom:28px; }
+.gallery-tab{
+  font-family:var(--body); font-weight:600; font-size:.88rem;
+  padding:11px 22px; border-radius:999px; cursor:pointer;
+  border:1px solid var(--primary); background:var(--primary); color:#fff;
+}
+.gallery-tab--ghost{ background:transparent; color:var(--primary); }
+.gallery-tab--ghost:hover{ background:var(--primary); color:#fff; }
+.gallery-tab.is-active{ background:var(--primary); color:#fff; }
+.album-card{
+  position:relative; aspect-ratio:4/3; overflow:hidden; cursor:pointer;
+  border-radius:var(--radius); border:1px solid var(--line); background:var(--bg-2);
+}
+.album-card .ph-img{ transition:transform .35s ease; }
+.album-card:hover .ph-img{ transform:scale(1.06); }
+.album-card .album-overlay{
+  position:absolute; inset:0; z-index:2;
+  background:linear-gradient(0deg, rgba(0,0,0,.72) 0%, rgba(0,0,0,.15) 55%, transparent 100%);
+  display:flex; flex-direction:column; justify-content:flex-end; padding:16px;
+}
+.album-card .album-title{ color:#fff; font-family:var(--display); font-weight:700; font-size:1.1rem; }
+.album-card .album-count{ color:rgba(255,255,255,.85); font-size:.8rem; margin-top:2px; }
+@media (max-width:900px){
+  .album-grid{ grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width:520px){
+  .album-grid{ grid-template-columns:1fr; }
+}
+
+.video-section-title{ margin-top:56px; margin-bottom:20px; }
+.video-album-row{ display:flex; }
+.video-album-row .album-card{ aspect-ratio:16/9; max-width:360px; width:100%; }
+.video-album-row .album-card .play-badge{
+  position:absolute; inset:0; z-index:2; display:flex; align-items:center; justify-content:center;
+}
+.video-album-row .album-card .play-badge svg{
+  width:52px; height:52px; color:#fff; filter:drop-shadow(0 2px 6px rgba(0,0,0,.5));
+}
+
+/* ---- Visionneuse (lightbox) ---- */
+.lightbox{
+  position:fixed; top:0; left:0; width:100%; height:100vh; height:100dvh; z-index:200; background:#0b0b0d;
+  display:none; align-items:center; justify-content:center; flex-direction:column;
+}
+.lightbox.is-open{ display:flex; }
+.lightbox-top{
+  background:linear-gradient(rgba(10,10,12,.96),rgba(10,10,12,.7) 70%,rgba(10,10,12,0));
+  position:absolute; top:0; left:0; right:0; z-index:5;
+  display:flex; align-items:center; justify-content:space-between; padding:16px 20px;
+  color:#fff; font-size:.9rem;
+}
+.lightbox-title{ font-weight:600; }
+.lightbox-top-actions{ display:flex; gap:10px; }
+.lb-btn{
+  width:38px; height:38px; border-radius:50%; border:none; cursor:pointer;
+  background:rgba(255,255,255,.14); color:#fff; font-size:1.1rem; line-height:1;
+  display:flex; align-items:center; justify-content:center;
+}
+.lb-btn:hover{ background:rgba(255,255,255,.26); }
+.lightbox-stage{
+  position:relative; width:100%; max-width:1100px; flex:1; display:flex;
+  align-items:center; justify-content:center; overflow:hidden; padding:70px 60px;
+  box-sizing:border-box;
+}
+.lightbox-stage img, .lightbox-stage video{
+  max-width:100%; max-height:100%; object-fit:contain; transition:transform .25s ease;
+  cursor:zoom-in; user-select:none;
+}
+.lightbox-stage img.is-zoomed{ cursor:zoom-out; transform:scale(1.9); }
+.lightbox-nav{
+  position:absolute; top:50%; transform:translateY(-50%); z-index:5;
+  width:46px; height:46px; border-radius:50%; border:none; cursor:pointer;
+  background:rgba(255,255,255,.14); color:#fff; font-size:1.4rem;
+  display:flex; align-items:center; justify-content:center;
+}
+.lightbox-nav:hover{ background:rgba(255,255,255,.26); }
+.lightbox-nav.prev{ left:14px; }
+.lightbox-nav.next{ right:14px; }
+.lightbox-bottom{
+  padding:14px 20px 22px; color:rgba(255,255,255,.8); font-size:.85rem; text-align:center;
+}
+@media (max-width:700px){
+  .lightbox-stage{ padding:70px 14px; }
+  .lightbox-nav{ width:38px; height:38px; font-size:1.15rem; }
+  .lightbox-nav.prev{ left:6px; }
+  .lightbox-nav.next{ right:6px; }
+}
+
+/* ---- Visionneuse : mode grille (le client choisit sa photo) ---- */
+.lightbox-grid-wrap{
+  width:100%; flex:1 1 0; min-height:0; overflow-y:auto; overflow-x:hidden; padding:80px 0 30px;
+  box-sizing:border-box; display:none;
+  overscroll-behavior:contain; -webkit-overflow-scrolling:touch; touch-action:pan-y;
+}
+.lightbox-grid-inner{ max-width:1200px; margin:0 auto; padding:0 24px; box-sizing:border-box; }
+.lightbox.is-grid-mode .lightbox-grid-wrap{ display:block; }
+.lightbox.is-grid-mode .lightbox-stage{ display:none; }
+.lightbox-thumb-grid{
+  display:grid; grid-template-columns:repeat(5,1fr); gap:10px;
+}
+.lightbox-thumb{
+  position:relative; aspect-ratio:1/1; overflow:hidden; border-radius:2px; cursor:pointer;
+  border:2px solid transparent; background:#1a1a1c; contain:layout paint;
+}
+.lightbox-thumb:hover{ border-color:var(--accent-light); }
+.lightbox-thumb img, .lightbox-thumb video{
+  width:100%; height:100%; object-fit:cover; display:block; pointer-events:none;
+}
+.lightbox-thumb .thumb-play{
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  background:rgba(0,0,0,.25);
+}
+.lightbox-thumb .thumb-play svg{ width:26px; height:26px; color:#fff; }
+@media (max-width:760px){
+  .lightbox-thumb-grid{ grid-template-columns:repeat(3,1fr); }
+}
+.lb-back{ display:none; }
+.lightbox.is-grid-mode #lbZoom{ display:none !important; }
+.lightbox:not(.is-grid-mode) .lb-back{ display:flex; }
+
+/* ============================================
+   EMPLACEMENT
+   ============================================ */
+.location .wrap{ display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--line); }
+.location-info{ padding:48px; background:var(--panel); color:var(--on-panel); }
+.location-info h2{ color:var(--on-panel); }
+.location-info .eyebrow{ color:var(--accent-light); }
+.info-row{ display:flex; gap:14px; margin-bottom:22px; align-items:flex-start; }
+.info-row svg{ width:19px; height:19px; flex-shrink:0; margin-top:3px; color:var(--accent-light); }
+.info-row div p{ margin:0; color:rgba(250,246,238,.82); font-size:.95rem; }
+.hours-list{ list-style:none; margin:0; padding:0; }
+.hours-list li{ display:flex; justify-content:space-between; font-size:.92rem; padding:5px 0; color:rgba(250,246,238,.82); border-bottom:1px dashed rgba(250,246,238,.15); }
+.map-frame{ min-height:340px; border:0; width:100%; height:100%; filter:grayscale(.15) contrast(1.02); }
+@media (max-width:860px){
+  .location .wrap{ grid-template-columns:1fr; }
+  .map-frame{ min-height:280px; }
+}
+
+/* ============================================
+   AVIS
+   ============================================ */
+.reviews .wrap{ display:grid; grid-template-columns:.8fr 1.2fr; gap:60px; }
+.rating-card{
+  border:1px solid var(--line); background:var(--white); padding:36px;
+  align-self:start; position:sticky; top:96px;
+}
+.rating-score{ font-family:var(--display); font-size:4rem; line-height:1; color:var(--primary-dark); }
+.stars{ display:inline-flex; gap:3px; }
+.stars svg{ width:17px; height:17px; }
+.star-filled{ fill:var(--accent-light); stroke:var(--accent-light); }
+.star-empty{ fill:none; stroke:var(--ink-60); stroke-width:1.4; }
+.rating-count{ color:var(--ink-60); font-size:.9rem; margin-top:6px; }
+.bars{ margin-top:26px; display:flex; flex-direction:column; gap:9px; }
+.bar-row{ display:grid; grid-template-columns:44px 1fr 34px; align-items:center; gap:10px; font-size:.82rem; color:var(--ink-60); }
+.bar-track{ height:6px; background:var(--bg-2); border-radius:3px; overflow:hidden; }
+.bar-fill{ height:100%; background:var(--accent-light); border-radius:3px; }
+
+.review-list{ display:flex; flex-direction:column; }
+.review{ padding:22px 0; border-bottom:1px solid var(--line); }
+.review:first-child{ padding-top:0; }
+.review-top{ display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:8px; }
+.review-name{ font-weight:600; font-size:.95rem; }
+.review-date{ font-size:.8rem; color:var(--ink-60); }
+.review-text{ margin:8px 0 0; color:var(--ink); font-size:.96rem; }
+
+.review-form{ margin-top:36px; border:1px solid var(--line); background:var(--white); padding:30px; }
+.review-form h3{ margin-bottom:4px; }
+.star-input{ display:flex; gap:4px; margin:14px 0 20px; }
+.star-input input{ position:absolute; opacity:0; width:0; height:0; }
+.star-input label{ cursor:pointer; }
+.star-input label svg{ width:26px; height:26px; }
+.field{ margin-bottom:16px; }
+.field label{ display:block; font-size:.85rem; font-weight:600; margin-bottom:6px; }
+.field input, .field textarea{
+  width:100%; padding:12px 14px; border:1px solid var(--line); border-radius:var(--radius);
+  font-family:var(--body); font-size:.95rem; background:var(--bg); color:var(--ink);
+}
+.field textarea{ resize:vertical; min-height:96px; }
+.field input:focus, .field textarea:focus{ outline:none; border-color:var(--accent); }
+.form-note{ font-size:.82rem; color:var(--ink-60); margin-top:12px; }
+.form-status{ font-size:.9rem; margin-top:12px; display:none; }
+.form-status.ok{ color:#2b5e3f; display:block; }
+.form-status.err{ color:#8a3a2c; display:block; }
+
+@media (max-width:860px){
+  .reviews .wrap{ grid-template-columns:1fr; }
+  .rating-card{ position:static; }
+}
+
+
+/* ============================================
+   CONTACT
+   ============================================ */
+.contact .wrap{ display:grid; grid-template-columns:.9fr 1.1fr; gap:60px; align-items:start; }
+.contact-form{ border:1px solid var(--line); background:var(--white); padding:36px; }
+.honey{ position:absolute; left:-9999px; }
+@media (max-width:860px){
+  .contact .wrap{ grid-template-columns:1fr; }
+}
+
+/* ============================================
+   PIED DE PAGE
+   ============================================ */
+footer{ background:var(--panel); color:rgba(250,249,246,.75); padding:56px 0 28px; }
+.footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; padding-bottom:36px; border-bottom:1px solid rgba(250,246,238,.12); }
+.footer-brand{ font-family:var(--display); font-size:1.4rem; color:var(--on-panel); margin-bottom:10px; }
+.footer-grid h4{ color:var(--on-panel); font-size:.85rem; margin:0 0 14px; font-weight:600; }
+.footer-grid ul{ list-style:none; margin:0; padding:0; }
+.footer-grid li{ margin-bottom:9px; font-size:.9rem; }
+.footer-grid a{ text-decoration:none; color:inherit; }
+.footer-grid a:hover{ color:var(--accent-light); }
+.footer-bottom{ display:flex; justify-content:space-between; padding-top:22px; font-size:.8rem; flex-wrap:wrap; gap:10px; }
+@media (max-width:760px){ .footer-grid{ grid-template-columns:1fr; } }
+
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+<div class="roof-bar" aria-hidden="true"></div>
+
+<header id="site-header">
+  <div class="wrap nav">
+    <a href="#top" class="brand" aria-label="N.F Rénovation">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M8 34 L32 10 L56 34 L56 54 L38 54 L38 40 L26 40 L26 54 L8 54 Z" fill="none" stroke="var(--primary)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="M19 31 L34 19 L40 25 L25 37 Z" fill="var(--primary)"/>
+      </svg>
+      <span><span class="be">N.F</span> <span class="nuhiu">Rénovation</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">À propos</a></li>
+      <li><a href="#gallery">Galerie</a></li>
+      <li><a href="#location">Adresse</a></li>
+      <li><a href="#reviews">Avis</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="nav-phone" data-bind="phone-href" href="#"><span data-bind="phone">06 66 86 35 80</span></a>
+      <a class="btn btn--ghost" href="#contact" style="padding:10px 20px;">Demander un devis</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Changer entre mode clair et mode sombre" title="Mode clair / sombre">
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HÉROS -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">Savoir-faire artisanal</span>
+        <h1 data-bind="business-name">N.F Rénovation</h1>
+        <p class="lede" data-bind="tagline">Des finitions soignées pour vos murs, façades et intérieurs, à Mulhouse et dans le Haut-Rhin.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn">Demander un devis</a>
+          <a href="#gallery" class="btn btn--ghost">Découvrir nos chantiers</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><b data-bind="stat-years">10+</b><span>Ans d'expérience</span></div>
+          <div class="hero-stat"><b data-bind="stat-rating">4,8</b><span>Note moyenne</span></div>
+          <div class="hero-stat"><b data-bind="stat-clients">500+</b><span>Projets réalisés</span></div>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img class="ph-img" src="hero.jpeg" alt="Photo principale de l'entreprise"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="ph-fallback">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M9 2l-1.5 2H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2h-3.5L15 2H9zm3 5a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z"/></svg>
+          <span>Remplacez hero.jpeg par votre propre photo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- À PROPOS -->
+  <section class="about section" id="about">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Notre savoir-faire</span>
+        <h2>Notre expertise</h2>
+        <p class="lede" data-bind="about-text">Fort de près de 20 ans d'expérience, N.F Rénovation intervient à Mulhouse et dans tout le Haut-Rhin pour des travaux d'isolation, de crépissage, de peinture et de placoplâtre. Au fil des années, notre équipe a eu l'occasion de travailler aussi bien pour des particuliers que pour de grandes entreprises, sur des chantiers de toutes tailles — de la rénovation d'une seule pièce à des projets bien plus vastes menés pour des donneurs d'ordre exigeants. Cette expérience nous a appris une chose essentielle : un chantier réussi, c'est avant tout un travail soigné livré dans les délais annoncés, sans mauvaise surprise. C'est exactement ce que nous nous efforçons d'offrir à chaque client, qu'il s'agisse d'une façade extérieure, d'un intérieur complet, ou d'un chantier mené en parallèle d'autres corps de métier sur un délai serré. Notre objectif reste le même depuis toujours : un résultat solide, propre, et livré au moment où vous en avez besoin.</p>
+      </div>
+      <div class="features">
+        <div class="feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M5 8c1.5 1.5 3-1.5 4.5 0s3-1.5 4.5 0 3-1.5 4.5 0"/><path d="M5 13c1.5 1.5 3-1.5 4.5 0s3-1.5 4.5 0 3-1.5 4.5 0"/><path d="M5 18c1.5 1.5 3-1.5 4.5 0s3-1.5 4.5 0 3-1.5 4.5 0"/></svg>
+          <h3 data-bind="feature-1-title">Isolation</h3>
+          <p data-bind="feature-1-text">Une bonne isolation, c'est un intérieur confortable toute l'année et une facture de chauffage qui redevient raisonnable.</p>
+        </div>
+        <div class="feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19l7-11h6l-7 11z"/><path d="M14 8V5"/><circle cx="14" cy="3.5" r="1.1"/></svg>
+          <h3 data-bind="feature-3-title">Crépissage</h3>
+          <p data-bind="feature-3-text">Un enduit de qualité ne se contente pas d'habiller un mur — il le protège durablement contre le vent, la pluie et le gel.</p>
+        </div>
+        <div class="feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="13" height="6" rx="2"/><path d="M16 7h2a2 2 0 0 1 2 2v1"/><line x1="18" y1="10" x2="13" y2="20"/></svg>
+          <h3 data-bind="feature-2-title">Peinture</h3>
+          <p data-bind="feature-2-text">Une peinture bien appliquée, c'est la différence entre une pièce quelconque et une pièce qui donne vraiment envie d'y vivre.</p>
+        </div>
+        <div class="feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1"/><line x1="3" y1="12" x2="21" y2="12"/><circle cx="8" cy="8.5" r=".6" fill="currentColor" stroke="none"/><circle cx="16" cy="8.5" r=".6" fill="currentColor" stroke="none"/><circle cx="8" cy="15.5" r=".6" fill="currentColor" stroke="none"/><circle cx="16" cy="15.5" r=".6" fill="currentColor" stroke="none"/></svg>
+          <h3 data-bind="feature-4-title">Placoplâtre</h3>
+          <p data-bind="feature-4-text">Cloisons, plafonds, doublages : une pose précise du placoplâtre garantit un résultat bien droit, prêt à recevoir la finition.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- GALERIE -->
+  <section class="section" id="gallery">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Galerie</span>
+        <h2>Nos chantiers</h2>
+      </div>
+      <div class="gallery-tabs">
+        <button type="button" class="gallery-tab is-active" id="tabMainGallery">Galerie principale</button>
+        <button type="button" class="gallery-tab gallery-tab--ghost" id="tabInterior">Intérieur</button>
+        <button type="button" class="gallery-tab gallery-tab--ghost" id="tabExterior">Extérieur</button>
+        <button type="button" class="gallery-tab gallery-tab--ghost" id="tabViewAll">Tout voir (photos &amp; vidéos)</button>
+      </div>
+      <div class="album-grid" id="albumGrid"></div>
+
+      <h3 class="video-section-title">Vidéos</h3>
+      <div class="video-album-row" id="videoAlbumRow"></div>
+    </div>
+  </section>
+
+  <!-- VISIONNEUSE (photos et vidéos en grand, avec zoom et navigation) -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-top">
+      <div class="lightbox-top-actions">
+        <button type="button" class="lb-btn lb-back" id="lbBack" title="Retour à la grille" aria-label="Retour à la grille">☰</button>
+        <span class="lightbox-title" id="lightboxTitle"></span>
+      </div>
+      <div class="lightbox-top-actions">
+        <button type="button" class="lb-btn" id="lbZoom" title="Zoomer / dézoomer" aria-label="Zoomer">+</button>
+        <button type="button" class="lb-btn" id="lbClose" title="Fermer" aria-label="Fermer">✕</button>
+      </div>
+    </div>
+
+    <!-- Mode grille : le client voit toutes les photos/vidéos et choisit -->
+    <div class="lightbox-grid-wrap" id="lightboxGridWrap">
+      <div class="lightbox-grid-inner"><div class="lightbox-thumb-grid" id="lightboxThumbGrid"></div></div>
+    </div>
+
+    <!-- Mode photo/vidéo unique, en grand -->
+    <div class="lightbox-stage" id="lightboxStage">
+      <button type="button" class="lightbox-nav prev" id="lbPrev" aria-label="Précédent">‹</button>
+      <!-- l'image ou la vidéo est injectée ici -->
+      <button type="button" class="lightbox-nav next" id="lbNext" aria-label="Suivant">›</button>
+    </div>
+    <div class="lightbox-bottom" id="lightboxCount"></div>
+  </div>
+
+  <!-- EMPLACEMENT -->
+  <section class="location" id="location">
+    <div class="wrap">
+      <div class="location-info">
+        <span class="eyebrow">Zone d'intervention</span>
+        <h2>Où nous trouver</h2>
+        <div class="info-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-6.2 7-12a7 7 0 10-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.4"/></svg>
+          <div><p data-bind="address">Mulhouse, Haut-Rhin (68)</p></div>
+        </div>
+        <div class="info-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h4l2 5-2.5 1.5a11 11 0 005 5L14 13l5 2v4a2 2 0 01-2 2A16 16 0 014 6a2 2 0 012-2z"/></svg>
+          <div><p data-bind="phone">06 66 86 35 80</p></div>
+        </div>
+        <div class="info-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg>
+          <div><p data-bind="email">nfisolation68@outlook.fr</p></div>
+        </div>
+        <ul class="hours-list" id="hoursList"></ul>
+      </div>
+      <iframe class="map-frame" id="mapFrame" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- AVIS -->
+  <section class="reviews section" id="reviews">
+    <div class="wrap">
+      <div class="rating-card">
+        <span class="eyebrow">Avis</span>
+        <div class="rating-score" id="ratingScore">4,8</div>
+        <div class="stars" id="ratingStars"></div>
+        <p class="rating-count" id="ratingCount">Basé sur 4 avis</p>
+        <div class="bars" id="ratingBars"></div>
+      </div>
+
+      <div>
+        <div class="review-list" id="reviewList"></div>
+
+        <div class="review-form">
+          <h3>Laisser un avis</h3>
+          <p class="lede" style="font-size:.92rem;">Dites aux autres ce que ça a été de travailler avec nous.</p>
+          <form id="reviewForm">
+            <div class="star-input" id="reviewStars" role="radiogroup" aria-label="Note">
+              <!-- rempli par le script -->
+            </div>
+            <div class="field">
+              <label for="rvName">Votre nom</label>
+              <input type="text" id="rvName" name="name" required>
+            </div>
+            <div class="field">
+              <label for="rvText">Votre avis</label>
+              <textarea id="rvText" name="message" required></textarea>
+            </div>
+            <input type="text" name="_gotcha" class="honey" tabindex="-1" autocomplete="off">
+            <button class="btn" type="submit">Publier l'avis</button>
+            <p class="form-note">Votre avis apparaît immédiatement sur cette page et une notification par e-mail est envoyée au propriétaire de l'entreprise.</p>
+            <p class="form-status" id="reviewStatus"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- CONTACT -->
+  <section class="contact section" id="contact">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Contact</span>
+        <h2>Un projet en tête ?</h2>
+        <p class="lede">Envoyez un message et il arrivera directement dans la boîte e-mail <span data-bind="email">nfisolation68@outlook.fr</span>. Réponse généralement sous un jour ouvré.</p>
+        <ul class="hours-list" id="hoursListContact" style="max-width:320px; margin-top:28px;"></ul>
+      </div>
+      <div class="contact-form">
+        <form id="contactForm">
+          <div class="field">
+            <label for="cName">Nom</label>
+            <input type="text" id="cName" name="name" required>
+          </div>
+          <div class="field">
+            <label for="cEmail">E-mail</label>
+            <input type="email" id="cEmail" name="email" required>
+          </div>
+          <div class="field">
+            <label for="cMessage">Message</label>
+            <textarea id="cMessage" name="message" required></textarea>
+          </div>
+          <input type="text" name="_gotcha" class="honey" tabindex="-1" autocomplete="off">
+          <button class="btn" type="submit">Envoyer le message</button>
+          <p class="form-status" id="contactStatus"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand" data-bind="business-name">N.F Rénovation</div>
+        <p style="max-width:34ch; font-size:.9rem;" data-bind="tagline">Des finitions soignées pour vos murs, façades et intérieurs, à Mulhouse et dans le Haut-Rhin.</p>
+      </div>
+      <div>
+        <h4>Explorer</h4>
+        <ul>
+          <li><a href="#about">À propos</a></li>
+          <li><a href="#gallery">Galerie</a></li>
+          <li><a href="#reviews">Avis</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li data-bind="address">Mulhouse, Haut-Rhin (68)</li>
+          <li data-bind="phone">06 66 86 35 80</li>
+          <li data-bind="email">nfisolation68@outlook.fr</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> <span data-bind="business-name">N.F Rénovation</span>. Tous droits réservés.</span>
+      <span>Site conçu avec soin.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   MODIFIEZ TOUT ICI POUR PERSONNALISER VOTRE SITE
+   Ce sont les seules valeurs à modifier pour vous approprier
+   le site. L'emplacement, les images et les avis sont gérés
+   comme des listes plus bas, pour ajouter ou retirer des
+   éléments librement.
+   ============================================================ */
+
+const BUSINESS = {
+  name:        "N.F Rénovation",
+  tagline:     "Des finitions soignées pour vos murs, façades et intérieurs, à Mulhouse et dans le Haut-Rhin.",
+  address:     "Mulhouse, Haut-Rhin (68)",
+  phone:       "06 66 86 35 80",
+  phoneHref:   "tel:+33666863580",
+  email:       "nfisolation68@outlook.fr",
+  aboutText:   "Fort de près de 20 ans d'expérience, N.F Rénovation intervient à Mulhouse et dans tout le Haut-Rhin pour des travaux d'isolation, de crépissage, de peinture et de placoplâtre. Au fil des années, notre équipe a eu l'occasion de travailler aussi bien pour des particuliers que pour de grandes entreprises, sur des chantiers de toutes tailles — de la rénovation d'une seule pièce à des projets bien plus vastes menés pour des donneurs d'ordre exigeants. Cette expérience nous a appris une chose essentielle : un chantier réussi, c'est avant tout un travail soigné livré dans les délais annoncés, sans mauvaise surprise. C'est exactement ce que nous nous efforçons d'offrir à chaque client, qu'il s'agisse d'une façade extérieure, d'un intérieur complet, ou d'un chantier mené en parallèle d'autres corps de métier sur un délai serré. Notre objectif reste le même depuis toujours : un résultat solide, propre, et livré au moment où vous en avez besoin.",
+  statYears:   "20+",
+  statClients: "100+"
+};
+
+// Horaires affichés dans les sections Emplacement et Contact
+const HOURS = [
+  { day: "Lundi – Samedi", time: "7 h 00 – 17 h 00" },
+  { day: "Pause déjeuner", time: "12 h 00 – 13 h 00" },
+  { day: "Dimanche",       time: "Fermé" }
+];
+
+// Photos de la galerie. Faites pointer "src" vers vos propres fichiers
+// (ex. FACADE/photo-1.jpg). "caption" est le petit texte affiché sous
+// chaque photo — écrivez-y ce que montre l'image (le chantier, la ville,
+// le type de travaux...). Si un fichier est manquant, un cadre de
+// substitution s'affiche automatiquement — vous pouvez donc laisser
+// ces valeurs telles quelles en attendant vos vraies photos.
+// Ajoutez ou retirez des lignes librement pour changer le nombre de photos.
+// Galerie de 20 emplacements. Chaque emplacement a un tableau "images"
+// au lieu d'une seule photo : mettez UN seul fichier pour une photo normale,
+// ou PLUSIEURS fichiers (ex. avant/après un chantier) pour que le visiteur
+// puisse cliquer les flèches et faire défiler les photos de cet emplacement.
+// Exemple avant/après :
+//   { images: ["FACADE/avant.jpeg", "FACADE/apres.jpeg"], alt: "...", caption: "..." }
+// Galerie organisée en albums par catégorie. Chaque album a un titre et
+// une liste de photos — ajoutez-en autant que vous voulez dans "photos",
+// le visiteur cliquera sur la vignette de l'album pour les parcourir
+// toutes dans la visionneuse (zoom, flèches précédent/suivant).
+// Pour ajouter une nouvelle catégorie, copiez un bloc entier et changez
+// le titre + les fichiers.
+const ALBUMS = [
+  {
+    title: "Isolation",
+    photos: [
+      "ISOLATION/isolation-1.jpeg",
+      "ISOLATION/isolation-2.jpeg",
+      "ISOLATION/isolation-3.jpeg",
+      "ISOLATION/isolation-4.jpeg",
+      "ISOLATION/isolation-5.jpeg",
+      "ISOLATION/isolation-6.jpeg",
+      "ISOLATION/isolation-7.jpeg",
+      "ISOLATION/isolation-8.jpeg",
+      "ISOLATION/isolation-9.jpeg",
+      "ISOLATION/isolation-10.jpeg",
+      "ISOLATION/isolation-11.jpeg",
+      "ISOLATION/isolation-12.jpeg",
+      "ISOLATION/isolation-13.jpeg",
+      "ISOLATION/isolation-14.jpeg",
+      "ISOLATION/isolation-15.jpeg",
+      "ISOLATION/isolation-16.jpeg",
+      "ISOLATION/isolation-17.jpeg",
+      "ISOLATION/isolation-18.jpeg",
+      "ISOLATION/isolation-19.jpeg",
+      "ISOLATION/isolation-20.jpeg",
+      "ISOLATION/isolation-21.jpeg",
+      "ISOLATION/isolation-22.jpeg",
+      "ISOLATION/isolation-23.jpeg",
+      "ISOLATION/isolation-24.jpeg",
+      "ISOLATION/isolation-25.jpeg",
+      "ISOLATION/isolation-26.jpeg",
+      "ISOLATION/isolation-27.jpeg",
+      "ISOLATION/isolation-28.jpeg",
+      "ISOLATION/isolation-29.jpeg",
+      "ISOLATION/isolation-30.jpeg",
+      "ISOLATION/isolation-31.jpeg",
+      "ISOLATION/isolation-32.jpeg",
+      "ISOLATION/isolation-33.jpeg",
+      "ISOLATION/isolation-34.jpeg",
+      "ISOLATION/isolation-35.jpeg",
+      "ISOLATION/isolation-36.jpeg",
+      "ISOLATION/isolation-37.jpeg",
+      "ISOLATION/isolation-38.jpeg",
+      "ISOLATION/isolation-39.jpeg",
+      "ISOLATION/isolation-40.jpeg",
+      "ISOLATION/isolation-41.jpeg",
+      "ISOLATION/isolation-42.jpeg",
+      "ISOLATION/isolation-43.jpeg",
+      "ISOLATION/isolation-44.jpeg",
+      "ISOLATION/isolation-45.jpeg"
+    ]
+  },
+  {
+    title: "Façade",
+    photos: [
+      "FACADE/facade-1.jpeg",
+      "FACADE/facade-2.jpeg",
+      "FACADE/facade-3.jpeg",
+      "FACADE/facade-4.jpeg",
+      "FACADE/facade-5.jpeg",
+      "FACADE/facade-6.jpeg",
+      "FACADE/facade-7.jpeg",
+      "FACADE/facade-8.jpeg",
+      "FACADE/facade-9.jpeg",
+      "FACADE/facade-10.jpeg",
+      "FACADE/facade-11.jpeg",
+      "FACADE/facade-12.jpeg",
+      "FACADE/facade-13.jpeg",
+      "FACADE/facade-14.jpeg",
+      "FACADE/facade-15.jpeg",
+      "FACADE/facade-16.jpeg",
+      "FACADE/facade-17.jpeg",
+      "FACADE/facade-18.jpeg",
+      "FACADE/facade-19.jpeg",
+      "FACADE/facade-20.jpeg",
+      "FACADE/facade-21.jpeg",
+      "FACADE/facade-22.jpeg",
+      "FACADE/facade-23.jpeg",
+      "FACADE/facade-24.jpeg",
+      "FACADE/facade-25.jpeg",
+      "FACADE/facade-26.jpeg",
+      "FACADE/facade-27.jpeg",
+      "FACADE/facade-28.jpeg",
+      "FACADE/facade-29.jpeg",
+      "FACADE/facade-30.jpeg",
+      "FACADE/facade-31.jpeg",
+      "FACADE/facade-32.jpeg",
+      "FACADE/facade-33.jpeg",
+      "FACADE/facade-34.jpeg",
+      "FACADE/facade-35.jpeg",
+      "FACADE/facade-36.jpeg",
+      "FACADE/facade-37.jpeg",
+      "FACADE/facade-38.jpeg",
+      "FACADE/facade-39.jpeg",
+      "FACADE/facade-40.jpeg",
+      "FACADE/facade-41.jpeg",
+      "FACADE/facade-42.jpeg",
+      "FACADE/facade-43.jpeg",
+      "FACADE/facade-44.jpeg",
+      "FACADE/facade-45.jpeg",
+      "FACADE/facade-46.jpeg",
+      "FACADE/facade-47.jpeg",
+      "FACADE/facade-48.jpeg",
+      "FACADE/facade-49.jpeg",
+      "FACADE/facade-50.jpeg",
+      "FACADE/facade-51.jpeg",
+      "FACADE/facade-52.jpeg",
+      "FACADE/facade-53.jpeg",
+      "FACADE/facade-54.jpeg",
+      "FACADE/facade-55.jpeg",
+      "FACADE/facade-56.jpeg",
+      "FACADE/facade-57.jpeg",
+      "FACADE/facade-58.jpeg",
+      "FACADE/facade-59.jpeg",
+      "FACADE/facade-60.jpeg",
+      "FACADE/facade-61.jpeg",
+      "FACADE/facade-62.jpeg",
+      "FACADE/facade-63.jpeg",
+      "FACADE/facade-64.jpeg",
+      "FACADE/facade-65.jpeg",
+      "FACADE/facade-66.jpeg",
+      "FACADE/facade-67.jpeg",
+      "FACADE/facade-68.jpeg",
+      "FACADE/facade-69.jpeg",
+      "FACADE/facade-70.jpeg",
+      "FACADE/facade-71.jpeg",
+      "FACADE/facade-72.jpeg",
+      "FACADE/facade-73.jpeg",
+      "FACADE/facade-74.jpeg",
+      "FACADE/facade-75.jpeg",
+      "FACADE/facade-76.jpeg",
+      "FACADE/facade-77.jpeg",
+      "FACADE/facade-78.jpeg",
+      "FACADE/facade-79.jpeg",
+      "FACADE/facade-80.jpeg",
+      "FACADE/facade-81.jpeg",
+      "FACADE/facade-82.jpeg",
+      "FACADE/facade-83.jpeg",
+      "FACADE/facade-84.jpeg",
+      "FACADE/facade-85.jpeg",
+      "FACADE/facade-86.jpeg",
+      "FACADE/facade-87.jpeg",
+      "FACADE/facade-88.jpeg",
+      "FACADE/facade-89.jpeg",
+      "FACADE/facade-90.jpeg",
+      "FACADE/facade-91.jpeg",
+      "FACADE/facade-92.jpeg",
+      "FACADE/facade-93.jpeg",
+      "FACADE/facade-94.jpeg",
+      "FACADE/facade-95.jpeg",
+      "FACADE/facade-96.jpeg",
+      "FACADE/facade-97.jpeg",
+      "FACADE/facade-98.jpeg",
+      "FACADE/facade-99.jpeg",
+      "FACADE/facade-100.jpeg",
+      "FACADE/facade-101.jpeg",
+      "FACADE/facade-102.jpeg",
+      "FACADE/facade-103.jpeg",
+      "FACADE/facade-104.jpeg",
+      "FACADE/facade-105.jpeg",
+      "FACADE/facade-106.jpeg",
+      "FACADE/facade-107.jpeg",
+      "FACADE/facade-108.jpeg",
+      "FACADE/facade-109.jpeg",
+      "FACADE/facade-110.jpeg",
+      "FACADE/facade-111.jpeg",
+      "FACADE/facade-112.jpeg",
+      "FACADE/facade-113.jpeg",
+      "FACADE/facade-114.jpeg",
+      "FACADE/facade-115.jpeg",
+      "FACADE/facade-116.jpeg",
+      "FACADE/facade-117.jpeg",
+      "FACADE/facade-118.jpeg",
+      "FACADE/facade-119.jpeg",
+      "FACADE/facade-120.jpeg",
+      "FACADE/facade-121.jpeg",
+      "FACADE/facade-122.jpeg",
+      "FACADE/facade-123.jpeg",
+      "FACADE/facade-124.jpeg",
+      "FACADE/facade-125.jpeg",
+      "FACADE/facade-126.jpeg",
+      "FACADE/facade-127.jpeg",
+      "FACADE/facade-128.jpeg",
+      "FACADE/facade-129.jpeg",
+      "FACADE/facade-130.jpeg",
+      "FACADE/facade-131.jpeg",
+      "FACADE/facade-132.jpeg",
+      "FACADE/facade-133.jpeg",
+      "FACADE/facade-134.jpeg",
+      "FACADE/facade-135.jpeg",
+      "FACADE/facade-136.jpeg",
+      "FACADE/facade-137.jpeg",
+      "FACADE/facade-138.jpeg",
+      "FACADE/facade-139.jpeg",
+      "FACADE/facade-140.jpeg",
+      "FACADE/facade-141.jpeg",
+      "FACADE/facade-142.jpeg",
+      "FACADE/facade-143.jpeg",
+      "FACADE/facade-144.jpeg",
+      "FACADE/facade-145.jpeg",
+      "FACADE/facade-146.jpeg",
+      "FACADE/facade-147.jpeg",
+      "FACADE/facade-148.jpeg",
+      "FACADE/facade-149.jpeg",
+      "FACADE/facade-150.jpeg",
+      "FACADE/facade-151.jpeg",
+      "FACADE/facade-152.jpeg",
+      "FACADE/facade-153.jpeg",
+      "FACADE/facade-154.jpeg",
+      "FACADE/facade-155.jpeg",
+      "FACADE/facade-156.jpeg",
+      "FACADE/facade-157.jpeg",
+      "FACADE/facade-158.jpeg",
+      "FACADE/facade-159.jpeg",
+      "FACADE/facade-160.jpeg",
+      "FACADE/facade-161.jpeg",
+      "FACADE/facade-162.jpeg",
+      "FACADE/facade-163.jpeg",
+      "FACADE/facade-164.jpeg",
+      "FACADE/facade-165.jpeg",
+      "FACADE/facade-166.jpeg"
+    ]
+  },
+  {
+    title: "Peinture",
+    photos: [
+      "PEINTURE/peinture-1.jpeg",
+      "PEINTURE/peinture-2.jpeg",
+      "PEINTURE/peinture-3.jpeg",
+      "PEINTURE/peinture-4.jpeg",
+      "PEINTURE/peinture-5.jpeg",
+      "PEINTURE/peinture-6.jpeg",
+      "PEINTURE/peinture-7.jpeg",
+      "PEINTURE/peinture-8.jpeg",
+      "PEINTURE/peinture-9.jpeg",
+      "PEINTURE/peinture-10.jpeg",
+      "PEINTURE/peinture-11.jpeg",
+      "PEINTURE/peinture-12.jpeg",
+      "PEINTURE/peinture-13.jpeg",
+      "PEINTURE/peinture-14.jpeg",
+      "PEINTURE/peinture-15.jpeg",
+      "PEINTURE/peinture-16.jpeg",
+      "PEINTURE/peinture-17.jpeg",
+      "PEINTURE/peinture-18.jpeg",
+      "PEINTURE/peinture-19.jpeg",
+      "PEINTURE/peinture-20.jpeg",
+      "PEINTURE/peinture-21.jpeg",
+      "PEINTURE/peinture-22.jpeg",
+      "PEINTURE/peinture-23.jpeg",
+      "PEINTURE/peinture-24.jpeg",
+      "PEINTURE/peinture-25.jpeg",
+      "PEINTURE/peinture-26.jpeg",
+      "PEINTURE/peinture-27.jpeg",
+      "PEINTURE/peinture-28.jpeg",
+      "PEINTURE/peinture-29.jpeg",
+      "PEINTURE/peinture-30.jpeg",
+      "PEINTURE/peinture-31.jpeg",
+      "PEINTURE/peinture-32.jpeg",
+      "PEINTURE/peinture-33.jpeg",
+      "PEINTURE/peinture-34.jpeg",
+      "PEINTURE/peinture-35.jpeg",
+      "PEINTURE/peinture-36.jpeg",
+      "PEINTURE/peinture-37.jpeg",
+      "PEINTURE/peinture-38.jpeg",
+      "PEINTURE/peinture-39.jpeg",
+      "PEINTURE/peinture-40.jpeg",
+      "PEINTURE/peinture-41.jpeg",
+      "PEINTURE/peinture-42.jpeg",
+      "PEINTURE/peinture-43.jpeg",
+      "PEINTURE/peinture-44.jpeg",
+      "PEINTURE/peinture-45.jpeg",
+      "PEINTURE/peinture-46.jpeg",
+      "PEINTURE/peinture-47.jpeg",
+      "PEINTURE/peinture-48.jpeg",
+      "PEINTURE/peinture-49.jpeg",
+      "PEINTURE/peinture-50.jpeg",
+      "PEINTURE/peinture-51.jpeg",
+      "PEINTURE/peinture-52.jpeg",
+      "PEINTURE/peinture-53.jpeg",
+      "PEINTURE/peinture-54.jpeg"
+    ]
+  },
+  {
+    title: "Placoplâtre",
+    photos: [
+      "PLACOPLATRE/placoplatre-1.jpeg",
+      "PLACOPLATRE/placoplatre-2.jpeg",
+      "PLACOPLATRE/placoplatre-3.jpeg",
+      "PLACOPLATRE/placoplatre-4.jpeg",
+      "PLACOPLATRE/placoplatre-5.jpeg",
+      "PLACOPLATRE/placoplatre-6.jpeg",
+      "PLACOPLATRE/placoplatre-7.jpeg",
+      "PLACOPLATRE/placoplatre-8.jpeg",
+      "PLACOPLATRE/placoplatre-9.jpeg",
+      "PLACOPLATRE/placoplatre-10.jpeg",
+      "PLACOPLATRE/placoplatre-11.jpeg",
+      "PLACOPLATRE/placoplatre-12.jpeg",
+      "PLACOPLATRE/placoplatre-13.jpeg",
+      "PLACOPLATRE/placoplatre-14.jpeg",
+      "PLACOPLATRE/placoplatre-15.jpeg",
+      "PLACOPLATRE/placoplatre-16.jpeg",
+      "PLACOPLATRE/placoplatre-17.jpeg",
+      "PLACOPLATRE/placoplatre-18.jpeg",
+      "PLACOPLATRE/placoplatre-19.jpeg",
+      "PLACOPLATRE/placoplatre-20.jpeg",
+      "PLACOPLATRE/placoplatre-21.jpeg",
+      "PLACOPLATRE/placoplatre-22.jpeg",
+      "PLACOPLATRE/placoplatre-23.jpeg",
+      "PLACOPLATRE/placoplatre-24.jpeg",
+      "PLACOPLATRE/placoplatre-25.jpeg",
+      "PLACOPLATRE/placoplatre-26.jpeg",
+      "PLACOPLATRE/placoplatre-27.jpeg",
+      "PLACOPLATRE/placoplatre-28.jpeg",
+      "PLACOPLATRE/placoplatre-29.jpeg",
+      "PLACOPLATRE/placoplatre-30.jpeg",
+      "PLACOPLATRE/placoplatre-31.jpeg",
+      "PLACOPLATRE/placoplatre-32.jpeg",
+      "PLACOPLATRE/placoplatre-33.jpeg",
+      "PLACOPLATRE/placoplatre-34.jpeg",
+      "PLACOPLATRE/placoplatre-35.jpeg",
+      "PLACOPLATRE/placoplatre-36.jpeg",
+      "PLACOPLATRE/placoplatre-37.jpeg",
+      "PLACOPLATRE/placoplatre-38.jpeg",
+      "PLACOPLATRE/placoplatre-39.jpeg",
+      "PLACOPLATRE/placoplatre-40.jpeg",
+      "PLACOPLATRE/placoplatre-41.jpeg",
+      "PLACOPLATRE/placoplatre-42.jpeg",
+      "PLACOPLATRE/placoplatre-43.jpeg",
+      "PLACOPLATRE/placoplatre-44.jpeg",
+      "PLACOPLATRE/placoplatre-45.jpeg",
+      "PLACOPLATRE/placoplatre-46.jpeg",
+      "PLACOPLATRE/placoplatre-47.jpeg",
+      "PLACOPLATRE/placoplatre-48.jpeg",
+      "PLACOPLATRE/placoplatre-49.jpeg",
+      "PLACOPLATRE/placoplatre-50.jpeg",
+      "PLACOPLATRE/placoplatre-51.jpeg"
+    ]
+  },
+  {
+    title: "LED & Plafonds",
+    photos: [
+      "LED/led-1.jpeg",
+      "LED/led-2.jpeg",
+      "LED/led-3.jpeg",
+      "LED/led-4.jpeg",
+      "LED/led-5.jpeg",
+      "LED/led-6.jpeg",
+      "LED/led-7.jpeg",
+      "LED/led-8.jpeg",
+      "LED/led-9.jpeg"
+    ]
+  }
+];
+
+// Boutons "Intérieur" / "Extérieur" : Façade = extérieur, Peinture et
+// Placoplâtre = intérieur. L'album Isolation contient les deux : la liste
+// ci-dessous indique les photos d'isolation prises DEHORS (toutes les autres
+// sont comptées en intérieur).
+const ISOLATION_EXTERIEUR = [
+  "ISOLATION/isolation-3.jpeg",
+  "ISOLATION/isolation-4.jpeg",
+  "ISOLATION/isolation-5.jpeg",
+  "ISOLATION/isolation-6.jpeg",
+  "ISOLATION/isolation-14.jpeg",
+  "ISOLATION/isolation-18.jpeg",
+  "ISOLATION/isolation-21.jpeg",
+  "ISOLATION/isolation-22.jpeg",
+  "ISOLATION/isolation-23.jpeg",
+  "ISOLATION/isolation-27.jpeg",
+  "ISOLATION/isolation-28.jpeg",
+  "ISOLATION/isolation-30.jpeg",
+  "ISOLATION/isolation-31.jpeg",
+  "ISOLATION/isolation-32.jpeg",
+  "ISOLATION/isolation-35.jpeg",
+  "ISOLATION/isolation-36.jpeg",
+  "ISOLATION/isolation-39.jpeg"
+];
+
+// Album vidéo unique (pas de catégories pour les vidéos). Ajoutez autant
+// de fichiers .mp4 que vous voulez dans "videos" — le visiteur clique la
+// vignette et parcourt toutes les vidéos dans la même visionneuse.
+const VIDEO_ALBUM = {
+  title: "Vidéos",
+  cover: "video-cover.jpg",
+  videos: [
+    "videos/video-1.mp4",
+    "videos/video-2.mp4",
+    "videos/video-3.mp4",
+    "videos/video-4.mp4",
+    "videos/video-5.mp4",
+    "videos/video-6.mp4",
+    "videos/video-7.mp4",
+    "videos/video-8.mp4",
+    "videos/video-9.mp4",
+    "videos/video-10.mp4"
+  ]
+};
+
+// Avis de départ. Les nouveaux avis envoyés depuis cet appareil
+// s'ajoutent au-dessus de cette liste et sont mémorisés par le navigateur.
+// Avis de départ. Laissez ce tableau vide pour partir avec une page
+// propre — les avis écrits par vos clients depuis le formulaire
+// ci-dessous s'ajouteront automatiquement ici au fil du temps.
+const SAMPLE_REVIEWS = [];
+
+
+/* ------------------------------------------------------------
+   ENVOI DES FORMULAIRES → VOTRE E-MAIL
+   Ce site est statique (sans serveur), il utilise donc Formspree
+   pour relayer les formulaires vers votre boîte mail. Étapes :
+     1. Allez sur formspree.io et créez un compte gratuit.
+     2. Créez un formulaire et copiez l'adresse qu'il vous donne,
+        par ex. "https://formspree.io/f/abcdEFGH"
+     3. Collez-la ci-dessous à la place de YOUR_FORM_ID.
+   Tant que ce n'est pas fait, les formulaires afficheront un
+   message clair plutôt que d'échouer silencieusement.
+   ------------------------------------------------------------ */
+const FORM_ENDPOINT = "https://formspree.io/f/mwlvbkgo";
+
+/* ------------------------------------------------------------
+   AVIS PARTAGÉS AVEC TOUT LE MONDE (base de données Supabase)
+   Sans ceci, les avis ne restent que sur l'appareil de la personne
+   qui les a écrits. Pour que tout visiteur voie les mêmes avis :
+     1. Allez sur supabase.com et créez un compte + un projet gratuits.
+     2. Dans l'onglet "SQL Editor" du projet, collez et exécutez le
+        code SQL fourni dans les instructions à côté de ce site.
+     3. Dans "Project Settings" → "API", copiez le "Project URL" et
+        la clé "anon public", et collez-les ci-dessous.
+   Tant que ce n'est pas fait, le site continue de fonctionner comme
+   avant (les avis restent visibles uniquement sur l'appareil qui les
+   a écrits) — rien n'est cassé en attendant.
+   ------------------------------------------------------------ */
+const SUPABASE_URL = "https://dhslvzcawwpbamnlwmsu.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRoc2x2emNhd3dwYmFtbmx3bXN1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE1NzI1NjgsImV4cCI6MjEwNzE0ODU2OH0.Z8Qw_UAWqGyFLy7OyBBXys4icECH9A2_iYqp7Xzj4Gk";
+
+let supabaseClient = null;
+if(!SUPABASE_URL.includes("YOUR_PROJECT") && window.supabase){
+  supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+}
+
+
+/* ============================================================
+   Le reste du fichier gère l'affichage — inutile d'y toucher
+   sauf pour changer le comportement du site.
+   ============================================================ */
+
+// ---- injecte tout le texte lié à data-bind ----
+function populateText(){
+  const map = {
+    "business-name": BUSINESS.name,
+    "tagline": BUSINESS.tagline,
+    "address": BUSINESS.address,
+    "phone": BUSINESS.phone,
+    "email": BUSINESS.email,
+    "about-text": BUSINESS.aboutText,
+    "stat-years": BUSINESS.statYears,
+    "stat-clients": BUSINESS.statClients,
+    "stat-rating": null // défini une fois les avis calculés
+  };
+  document.querySelectorAll("[data-bind]").forEach(el=>{
+    const key = el.getAttribute("data-bind");
+    if(key === "phone-href"){ el.setAttribute("href", BUSINESS.phoneHref); return; }
+    if(map[key] !== undefined && map[key] !== null){ el.textContent = map[key]; }
+  });
+  document.title = BUSINESS.name;
+}
+
+// ---- horaires ----
+function renderHours(){
+  const html = HOURS.map(h=>`<li><span>${h.day}</span><span>${h.time}</span></li>`).join("");
+  document.getElementById("hoursList").innerHTML = html;
+  document.getElementById("hoursListContact").innerHTML = html;
+}
+
+// ---- carte ----
+function renderMap(){
+  const q = encodeURIComponent(BUSINESS.address);
+  document.getElementById("mapFrame").src = `https://www.google.com/maps?q=${q}&output=embed`;
+}
+
+// ---- albums photo ----
+function albumCoverHTML(coverSrc, title, count){
+  return `
+    <img class="ph-img" src="${coverSrc}" alt="${title}"
+         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="ph-fallback">
+      <svg viewBox="0 0 24 24"><path fill="currentColor" d="M9 2l-1.5 2H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2h-3.5L15 2H9zm3 5a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z"/></svg>
+      <span>${coverSrc}</span>
+    </div>
+    <div class="album-overlay">
+      <div class="album-title">${title}</div>
+      <div class="album-count">${count} photo${count > 1 ? "s" : ""}</div>
+    </div>
+  `;
+}
+
+function renderAlbums(){
+  const grid = document.getElementById("albumGrid");
+  grid.innerHTML = ALBUMS.map((album, i) => `
+    <div class="album-card" data-album-idx="${i}">
+      ${albumCoverHTML(album.photos[0], album.title, album.photos.length)}
+    </div>
+  `).join("");
+
+  grid.querySelectorAll(".album-card[data-album-idx]").forEach(card => {
+    const idx = parseInt(card.getAttribute("data-album-idx"), 10);
+    card.addEventListener("click", () => {
+      openLightbox({
+        title: ALBUMS[idx].title,
+        items: ALBUMS[idx].photos.map(src => ({ src, type: "photo" }))
+      });
+    });
+  });
+}
+
+// ---- album vidéo ----
+function renderVideoAlbum(){
+  const row = document.getElementById("videoAlbumRow");
+  if(!row) return;
+  const count = VIDEO_ALBUM.videos.length;
+  row.innerHTML = `
+    <div class="album-card" id="videoAlbumCard">
+      <img class="ph-img" src="${VIDEO_ALBUM.cover}" alt="${VIDEO_ALBUM.title}"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="ph-fallback">
+        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+        <span>${VIDEO_ALBUM.cover}</span>
+      </div>
+      <div class="play-badge">
+        <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="11" fill="rgba(0,0,0,.35)"/><path d="M9.5 7.5v9l8-4.5z" fill="#fff"/></svg>
+      </div>
+      <div class="album-overlay">
+        <div class="album-title">${VIDEO_ALBUM.title}</div>
+        <div class="album-count">${count} vidéo${count > 1 ? "s" : ""}</div>
+      </div>
+    </div>
+  `;
+  document.getElementById("videoAlbumCard").addEventListener("click", () => {
+    openLightbox({
+      title: VIDEO_ALBUM.title,
+      items: VIDEO_ALBUM.videos.map(src => ({ src, type: "video" }))
+    });
+  });
+}
+
+// ---- onglets "Galerie principale" / "Tout voir" ----
+function wireGalleryTabs(){
+  const mainTab = document.getElementById("tabMainGallery");
+  const allTab = document.getElementById("tabViewAll");
+  if(!mainTab || !allTab) return;
+
+  mainTab.addEventListener("click", () => {
+    mainTab.classList.add("is-active");
+    document.getElementById("albumGrid").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  function photosOf(title){ return ALBUMS.find(a => a.title === title).photos; }
+  function openScope(label, list){
+    openLightbox({ title: label, items: list.map(src => ({ src, type: "photo" })) });
+  }
+  const intTab = document.getElementById("tabInterior");
+  const extTab = document.getElementById("tabExterior");
+  if(intTab) intTab.addEventListener("click", () => {
+    const iso = photosOf("Isolation").filter(s => !ISOLATION_EXTERIEUR.includes(s));
+    openScope("Intérieur — toutes les photos", [...iso, ...photosOf("Peinture"), ...photosOf("Placoplâtre"), ...photosOf("LED & Plafonds")]);
+  });
+  if(extTab) extTab.addEventListener("click", () => {
+    const iso = photosOf("Isolation").filter(s => ISOLATION_EXTERIEUR.includes(s));
+    openScope("Extérieur — toutes les photos", [...iso, ...photosOf("Façade")]);
+  });
+
+  allTab.addEventListener("click", () => {
+    const everything = [];
+    ALBUMS.forEach(album => album.photos.forEach(src => everything.push({ src, type: "photo" })));
+    VIDEO_ALBUM.videos.forEach(src => everything.push({ src, type: "video" }));
+    openLightbox({ title: "Toutes les photos et vidéos", items: everything });
+  });
+}
+
+// ---- visionneuse (lightbox) : zoom + navigation, pour photos et vidéos ----
+// Chaque élément de "items" est { src, type } — type vaut "photo" ou "video",
+// ce qui permet à la visionneuse "Tout voir" de mélanger les deux librement.
+const lightboxState = { items: [], index: 0, zoomed: false };
+
+// miniature rapide : DOSSIER/mini/nom.jpeg (si absente, on charge l'original)
+function thumbOf(src){
+  const i = src.lastIndexOf("/");
+  return i < 0 ? src : src.slice(0, i) + "/mini" + src.slice(i);
+}
+function lbRenderGrid(){
+  const grid = document.getElementById("lightboxThumbGrid");
+  grid.innerHTML = lightboxState.items.map((item, i) => `
+    <div class="lightbox-thumb" data-thumb-idx="${i}">
+      ${item.type === "video"
+        ? `<video src="${item.src}#t=0.1" preload="metadata" muted playsinline></video><div class="thumb-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>`
+        : `<img src="${thumbOf(item.src)}" alt="" loading="lazy" decoding="async" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='${item.src}';}">`}
+    </div>
+  `).join("");
+  grid.querySelectorAll(".lightbox-thumb").forEach(thumb => {
+    thumb.addEventListener("click", () => {
+      const idx = parseInt(thumb.getAttribute("data-thumb-idx"), 10);
+      showSingle(idx);
+    });
+  });
+}
+
+function lbRenderCurrent(){
+  const stage = document.getElementById("lightboxStage");
+  stage.querySelectorAll(".lb-media").forEach(el => el.remove());
+  const item = lightboxState.items[lightboxState.index];
+  let el;
+  if(item.type === "video"){
+    el = document.createElement("video");
+    el.src = item.src;
+    el.controls = true;
+    el.autoplay = true;
+    el.className = "lb-media";
+  } else {
+    el = document.createElement("img");
+    el.src = item.src;
+    el.alt = "";
+    el.className = "lb-media";
+    lightboxState.zoomed = false;
+    el.addEventListener("click", () => {
+      lightboxState.zoomed = !lightboxState.zoomed;
+      el.classList.toggle("is-zoomed", lightboxState.zoomed);
+    });
+  }
+  stage.insertBefore(el, document.getElementById("lbNext"));
+  document.getElementById("lightboxCount").textContent =
+    `${lightboxState.index + 1} / ${lightboxState.items.length}`;
+  const showArrows = lightboxState.items.length > 1;
+  document.getElementById("lbPrev").style.display = showArrows ? "flex" : "none";
+  document.getElementById("lbNext").style.display = showArrows ? "flex" : "none";
+  document.getElementById("lbZoom").style.display = item.type === "video" ? "none" : "flex";
+}
+
+// ---- ouvre la visionneuse en mode grille : le client choisit sa photo ----
+function openLightbox({ title, items }){
+  lightboxState.items = items;
+  lightboxState.index = 0;
+  document.getElementById("lightboxTitle").textContent = title;
+  const lb = document.getElementById("lightbox");
+  lb.classList.add("is-open", "is-grid-mode");
+  document.body.style.overflow = "hidden";
+  lbRenderGrid();
+  const gw = document.getElementById("lightboxGridWrap");
+  if(gw) gw.scrollTop = 0;
+}
+
+// ---- passe en mode photo/vidéo unique, en grand ----
+function showSingle(index){
+  lightboxState.index = index;
+  document.getElementById("lightbox").classList.remove("is-grid-mode");
+  lbRenderCurrent();
+}
+
+function backToGrid(){
+  const stage = document.getElementById("lightboxStage");
+  stage.querySelectorAll(".lb-media").forEach(el => el.remove());
+  document.getElementById("lightbox").classList.add("is-grid-mode");
+}
+
+function closeLightbox(){
+  document.getElementById("lightbox").classList.remove("is-open", "is-grid-mode");
+  document.body.style.overflow = "";
+  const stage = document.getElementById("lightboxStage");
+  stage.querySelectorAll(".lb-media").forEach(el => el.remove());
+}
+
+function lbShow(n){
+  const total = lightboxState.items.length;
+  showSingle((n + total) % total);
+}
+
+function wireLightbox(){
+  document.getElementById("lbClose").addEventListener("click", closeLightbox);
+  document.getElementById("lbBack").addEventListener("click", backToGrid);
+  document.getElementById("lbPrev").addEventListener("click", () => lbShow(lightboxState.index - 1));
+  document.getElementById("lbNext").addEventListener("click", () => lbShow(lightboxState.index + 1));
+  document.getElementById("lbZoom").addEventListener("click", () => {
+    const img = document.querySelector(".lb-media.is-zoomed, img.lb-media");
+    if(img && img.tagName === "IMG"){
+      lightboxState.zoomed = !lightboxState.zoomed;
+      img.classList.toggle("is-zoomed", lightboxState.zoomed);
+    }
+  });
+  document.getElementById("lightbox").addEventListener("click", (e) => {
+    if(e.target.id === "lightbox") closeLightbox();
+  });
+  document.addEventListener("keydown", (e) => {
+    const lb = document.getElementById("lightbox");
+    if(!lb.classList.contains("is-open")) return;
+    if(lb.classList.contains("is-grid-mode")){ if(e.key === "Escape") closeLightbox(); return; }
+    if(e.key === "Escape") backToGrid();
+    if(e.key === "ArrowLeft") lbShow(lightboxState.index - 1);
+    if(e.key === "ArrowRight") lbShow(lightboxState.index + 1);
+  });
+}
+
+// ---- aide pour les icônes étoiles ----
+function starSVG(filled){
+  return `<svg viewBox="0 0 24 24" class="${filled ? 'star-filled' : 'star-empty'}"><path d="M12 3.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7z"/></svg>`;
+}
+function starRow(rating){
+  let out = "";
+  for(let i=1;i<=5;i++){ out += starSVG(i <= Math.round(rating)); }
+  return `<span class="stars">${out}</span>`;
+}
+
+// ---- avis : stockage + affichage ----
+// Si Supabase est configuré, les avis sont lus/écrits dans la base de
+// données partagée (visible par tout le monde). Sinon, on retombe sur
+// un stockage local à l'appareil, pour que le site reste fonctionnel
+// même avant d'avoir connecté la base de données.
+const STORAGE_KEY = "site_reviews_v1";
+
+async function loadReviews(){
+  if(supabaseClient){
+    const { data, error } = await supabaseClient
+      .from("reviews")
+      .select("name, rating, text, created_at")
+      .order("created_at", { ascending: false });
+    if(error){ console.error("Supabase (lecture avis) :", error); return []; }
+    return data.map(r => ({ name: r.name, rating: r.rating, text: r.text, date: r.created_at }));
+  }
+  try{
+    const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    return stored.concat(SAMPLE_REVIEWS);
+  }catch(e){ return SAMPLE_REVIEWS.slice(); }
+}
+
+async function saveReview(review){
+  if(supabaseClient){
+    const { error } = await supabaseClient
+      .from("reviews")
+      .insert({ name: review.name, rating: review.rating, text: review.text });
+    if(error) throw error;
+    return;
+  }
+  let stored = [];
+  try{ stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"); }catch(e){}
+  stored.unshift(review);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(stored));
+}
+
+async function renderReviews(){
+  const reviews = await loadReviews();
+  const list = document.getElementById("reviewList");
+  list.innerHTML = reviews.length ? reviews.map(r => `
+    <div class="review">
+      <div class="review-top">
+        <span class="review-name">${escapeHTML(r.name)}</span>
+        <span class="review-date">${formatDate(r.date)}</span>
+      </div>
+      ${starRow(r.rating)}
+      <p class="review-text">${escapeHTML(r.text)}</p>
+    </div>
+  `).join("") : `<p class="lede" style="font-size:.95rem;">Aucun avis pour le moment — soyez le premier à en laisser un ci-dessous.</p>`;
+
+  // résumé
+  const total = reviews.length;
+  const avg = total ? (reviews.reduce((s,r)=>s+r.rating,0) / total) : 0;
+  document.getElementById("ratingScore").textContent = total ? avg.toFixed(1).replace(".", ",") : "—";
+  document.getElementById("ratingStars").innerHTML = starRow(avg);
+  document.getElementById("ratingCount").textContent = total ? `Basé sur ${total} avis` : "Pas encore d'avis";
+
+  const counts = {5:0,4:0,3:0,2:0,1:0};
+  reviews.forEach(r=>{ counts[Math.round(r.rating)] = (counts[Math.round(r.rating)]||0) + 1; });
+  const bars = [5,4,3,2,1].map(n=>{
+    const pct = total ? Math.round((counts[n]/total)*100) : 0;
+    return `<div class="bar-row"><span>${n} étoiles</span><div class="bar-track"><div class="bar-fill" style="width:${pct}%;"></div></div><span>${pct}%</span></div>`;
+  }).join("");
+  document.getElementById("ratingBars").innerHTML = bars;
+
+  const statRating = document.querySelector('[data-bind="stat-rating"]');
+  if(statRating) statRating.textContent = total ? avg.toFixed(1).replace(".", ",") : "—";
+}
+function escapeHTML(str){
+  const div = document.createElement("div");
+  div.textContent = str;
+  return div.innerHTML;
+}
+function formatDate(iso){
+  try{
+    return new Date(iso).toLocaleDateString("fr-FR", { year:"numeric", month:"short", day:"numeric" });
+  }catch(e){ return iso; }
+}
+
+// ---- sélecteur d'étoiles interactif pour le formulaire d'avis ----
+function renderStarInput(){
+  const wrap = document.getElementById("reviewStars");
+  let html = "";
+  for(let i=5;i>=1;i--){
+    html += `
+      <input type="radio" name="rating" id="star${i}" value="${i}" ${i===5?"checked":""}>
+      <label for="star${i}" title="${i} étoile${i>1?"s":""}">${starSVG(true)}</label>
+    `;
+  }
+  wrap.innerHTML = html;
+  wrap.style.flexDirection = "row-reverse";
+  wrap.style.justifyContent = "flex-end";
+
+  // remplissage en direct au survol/à la sélection
+  const inputs = wrap.querySelectorAll("input");
+  const labels = wrap.querySelectorAll("label");
+  function paint(selected){
+    inputs.forEach((inp, idx) => {
+      const val = parseInt(inp.value, 10);
+      labels[idx].querySelector("svg").setAttribute("class", val <= selected ? "star-filled" : "star-empty");
+    });
+  }
+  inputs.forEach(inp => inp.addEventListener("change", () => paint(parseInt(inp.value,10))));
+  wrap.addEventListener("mouseover", e=>{
+    const lbl = e.target.closest("label");
+    if(!lbl) return;
+    const val = parseInt(lbl.previousElementSibling.value, 10);
+    paint(val);
+  });
+  wrap.addEventListener("mouseleave", ()=>{
+    const checked = wrap.querySelector("input:checked");
+    paint(checked ? parseInt(checked.value,10) : 0);
+  });
+  paint(5);
+}
+
+// ---- aide à l'envoi (Formspree) ----
+async function submitToFormspree(payload){
+  if(FORM_ENDPOINT.includes("YOUR_FORM_ID")){
+    throw new Error("not-configured");
+  }
+  const res = await fetch(FORM_ENDPOINT, {
+    method: "POST",
+    headers: { "Accept": "application/json", "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  });
+  if(!res.ok) throw new Error("send-failed");
+  return true;
+}
+
+// ---- formulaire d'avis ----
+function wireReviewForm(){
+  const form = document.getElementById("reviewForm");
+  const status = document.getElementById("reviewStatus");
+  form.addEventListener("submit", async (e)=>{
+    e.preventDefault();
+    if(form._gotcha.value){ return; } // robot indésirable repéré par le piège à spam
+
+    const rating = parseInt(form.rating.value, 10);
+    const name = form.name.value.trim();
+    const text = form.message.value.trim();
+    if(!name || !text){ return; }
+
+    const review = { name, rating, text, date: new Date().toISOString() };
+    try{
+      await saveReview(review);
+      await renderReviews();
+      form.reset();
+      renderStarInput();
+      status.className = "form-status ok";
+      status.textContent = supabaseClient
+        ? "Merci — votre avis est maintenant visible pour tout le monde."
+        : "Merci — votre avis est visible sur cette page (pour l'instant uniquement sur cet appareil, tant que la base de données n'est pas connectée).";
+    }catch(err){
+      console.error("Avis non enregistré :", err);
+      status.className = "form-status err";
+      const detail = (err && (err.message || err.code)) ? " (" + (err.message || err.code) + ")" : "";
+      status.textContent = "Votre avis n'a pas pu être enregistré." + detail + " Réessayez dans un instant.";
+      return;
+    }
+
+    try{
+      await submitToFormspree({
+        _subject: `Nouvel avis de ${name} (${rating}★)`,
+        name, rating, message: text, form: "avis"
+      });
+    }catch(err){
+      if(err.message === "not-configured"){
+        status.textContent += " (Les notifications par e-mail ne sont pas encore configurées — ajoutez votre adresse Formspree dans le code.)";
+      }
+    }
+  });
+}
+
+// ---- formulaire de contact ----
+function wireContactForm(){
+  const form = document.getElementById("contactForm");
+  const status = document.getElementById("contactStatus");
+  form.addEventListener("submit", async (e)=>{
+    e.preventDefault();
+    if(form._gotcha.value){ return; }
+
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+    if(!name || !email || !message){ return; }
+
+    try{
+      await submitToFormspree({
+        _subject: `Nouveau message de ${name}`,
+        name, email, message, form: "contact"
+      });
+      status.className = "form-status ok";
+      status.textContent = "Message envoyé — merci, nous revenons vers vous rapidement.";
+      form.reset();
+    }catch(err){
+      status.className = "form-status err";
+      status.textContent = err.message === "not-configured"
+        ? "L'envoi d'e-mails n'est pas encore configuré — ajoutez votre adresse Formspree dans le code (voir les commentaires en haut du script)."
+        : "Une erreur est survenue lors de l'envoi de votre message. Réessayez ou appelez-nous directement.";
+    }
+  });
+}
+
+// ---- en-tête + navigation ----
+function wireHeader(){
+  const header = document.getElementById("site-header");
+  window.addEventListener("scroll", ()=>{
+    header.classList.toggle("is-scrolled", window.scrollY > 8);
+  }, { passive:true });
+
+  const toggle = document.getElementById("navToggle");
+  const links = document.getElementById("navLinks");
+  toggle.addEventListener("click", ()=>{
+    const open = links.classList.toggle("is-open");
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  links.querySelectorAll("a").forEach(a=>{
+    a.addEventListener("click", ()=> links.classList.remove("is-open"));
+  });
+}
+
+
+// ---- initialisation ----
+document.getElementById("year").textContent = new Date().getFullYear();
+populateText();
+renderHours();
+renderMap();
+renderAlbums();
+renderVideoAlbum();
+wireGalleryTabs();
+wireLightbox();
+renderStarInput();
+renderReviews();
+wireReviewForm();
+wireContactForm();
+wireHeader();
+
+// ---- mode clair / sombre ----
+(function(){
+  const btn = document.getElementById("themeToggle");
+  if(!btn) return;
+  btn.addEventListener("click", () => {
+    const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    try{ localStorage.setItem("theme", next); }catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
